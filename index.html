@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<title>BMW M4 FUND</title>
+<style>
+:root{color-scheme:dark;--bg:#090909;--panel:#151515;--muted:#96918a;--gold:#d7bd83;--line:#302a20}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#292319 0,#111 38%,#080808 78%);color:#f4f0e8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 18px calc(28px + env(safe-area-inset-bottom))}
+main{max-width:460px;margin:0 auto;padding-top:22px}
+.top{display:flex;justify-content:space-between;align-items:center;color:var(--gold);font-size:11px;letter-spacing:2.4px;font-weight:700}
+.status{border:1px solid #66583b;border-radius:30px;padding:7px 10px;font-size:9px;letter-spacing:1.5px}
+.hero{margin:22px 0 18px;position:relative;overflow:hidden;border-radius:22px;min-height:170px;background:linear-gradient(125deg,#27231d,#111 52%,#050505);border:1px solid #3b3325;padding:22px}
+.hero:before{content:"M4";position:absolute;right:-6px;bottom:-35px;font-size:132px;font-weight:900;letter-spacing:-10px;color:#ffffff09;font-style:italic}
+.hero small{color:var(--gold);letter-spacing:3px;font-size:10px}
+.hero h1{font-size:26px;letter-spacing:1px;margin:12px 0 4px;font-weight:650}
+.hero p{margin:0;color:#b9b1a4;font-size:12px;letter-spacing:1.2px}
+.card{background:linear-gradient(145deg,#191919,#101010);border:1px solid #292929;border-radius:20px;padding:21px;margin-bottom:13px;box-shadow:0 14px 38px #0008}
+.label{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.balance{font-size:37px;font-weight:650;letter-spacing:-1.5px;margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.gold{color:var(--gold)}
+.goalrow{display:flex;justify-content:space-between;gap:10px;margin:20px 0 10px;font-size:12px;color:#c4bdae}
+.track{height:8px;background:#302e2a;border-radius:20px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#92764a,#e4d1a4);border-radius:20px;transition:width .25s}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:17px}
+.stat{background:#101010;border:1px solid #282828;border-radius:13px;padding:13px}
+.stat strong{display:block;font-size:17px;margin-top:6px;font-variant-numeric:tabular-nums}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input{width:100%;background:#0b0b0b;border:1px solid #38332a;border-radius:12px;padding:14px;color:#fff;font-size:16px;outline:none}
+input:focus{border-color:var(--gold)}
+button{border:0;border-radius:12px;padding:14px 12px;font-weight:700;font-size:13px;cursor:pointer}
+.add{background:linear-gradient(135deg,#e5d1a2,#b18f53);color:#17130d}
+.remove{background:#292522;color:#e7dfd2;border:1px solid #40382c}
+.entry{display:flex;gap:10px;margin:12px 0 0}
+.entry input{min-width:0}
+.history{margin-top:15px}
+.item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #292929;font-size:13px}
+.item:last-child{border:0}
+.empty{color:var(--muted);font-size:13px;padding:12px 0}
+.note{font-size:10px;color:#777168;line-height:1.5;text-align:center;margin:18px 8px}
+.footer{text-align:center;color:#827967;font-size:9px;letter-spacing:2px;margin-top:24px}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><span>PRIVATE GARAGE · EST. 2026</span><span class="status">SAVINGS CLUB</span></div>
+  <section class="hero">
+    <small>THE NEXT CHAPTER</small>
+    <h1>BMW M4 G82</h1>
+    <p>THE GOAL IS SET. THE JOURNEY BEGINS.</p>
+  </section>
+  <section class="card">
+    <div class="label">Текущий капитал</div>
+    <div class="balance" id="balance">0 ₽</div>
+    <div class="goalrow"><span>Цель <b class="gold">8 000 000 ₽</b></span><span id="percent">0,00%</span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="stats">
+      <div class="stat"><span class="label">Осталось</span><strong id="left">8 000 000 ₽</strong></div>
+      <div class="stat"><span class="label">Пополнений</span><strong id="count">0</strong></div>
+    </div>
+  </section>
+  <section class="card">
+    <div class="label">Добавить монетку</div>
+    <div class="entry"><input id="amount" type="number" min="1" step="1" placeholder="Сумма в ₽" inputmode="numeric"><button class="add" id="add">ПОПОЛНИТЬ +</button></div>
+    <div class="entry"><button class="remove" id="undo" style="width:100%">Отменить последнее пополнение</button></div>
+  </section>
+  <section class="card">
+    <div class="label">История операций</div>
+    <div class="history" id="history"><div class="empty">Пока тихо. Ждём первую монетку.</div></div>
+  </section>
+  <p class="note">Данные сохраняются в памяти браузера на этом устройстве. Это личный трекер цели, не банковский счёт и не хранение денег.</p>
+  <div class="footer">BMW M4 FUND · BLACK TIE EDITION</div>
+</main>
+<script>
+const GOAL=8000000, KEY='bmw_m4_fund_v1';
+let entries=[];
+try{entries=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(entries))entries=[];}catch(e){entries=[];}
+const fmt=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(n)+' ₽';
+function save(){localStorage.setItem(KEY,JSON.stringify(entries));render();}
+function render(){
+ const total=entries.reduce((s,x)=>s+x.amount,0), pct=Math.min(total/GOAL*100,100);
+ document.getElementById('balance').textContent=fmt(total);
+ document.getElementById('left').textContent=fmt(Math.max(GOAL-total,0));
+ document.getElementById('count').textContent=entries.length;
+ document.getElementById('percent').textContent=pct.toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2})+'%';
+ document.getElementById('fill').style.width=pct+'%';
+ const h=document.getElementById('history');
+ h.innerHTML='';
+ if(!entries.length){h.innerHTML='<div class="empty">Пока тихо. Ждём первую монетку.</div>';return;}
+ [...entries].reverse().forEach(x=>{const d=document.createElement('div');d.className='item';const date=new Date(x.date).toLocaleDateString('ru-RU');d.innerHTML='<span>'+date+'</span><b class="gold">+'+fmt(x.amount)+'</b>';h.appendChild(d);});
+}
+document.getElementById('add').addEventListener('click',()=>{
+ const input=document.getElementById('amount'), amount=Math.floor(Number(input.value));
+ if(!Number.isSafeInteger(amount)||amount<1){input.focus();return;}
+ entries.push({amount,date:new Date().toISOString()});input.value='';save();
+});
+document.getElementById('amount').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('add').click();});
+document.getElementById('undo').addEventListener('click',()=>{if(entries.length){entries.pop();save();}});
+render();
+</script>
+</body>
+</html>
