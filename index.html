@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080a0d">
+<title>BMW M4 G82 — Dream Garage</title>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+:root{--bg:#080a0d;--panel:#11151b;--line:#252c35;--gold:#d8b56d;--green:#1b7650;--muted:#929ba8;--white:#f3f5f7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#1b2925 0%,#080a0d 48%);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{width:min(1100px,100% - 28px);margin:0 auto;padding:28px 0 50px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
+.brand{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:800}.tag{font-size:11px;color:#b7c0c9;border:1px solid var(--line);padding:7px 10px;border-radius:99px}
+h1{font-size:clamp(28px,6vw,54px);line-height:1.02;letter-spacing:-.045em;margin:8px 0}.sub{color:var(--muted);margin:0 0 20px}
+.hero{border:1px solid #29342f;border-radius:22px;overflow:hidden;background:linear-gradient(145deg,#17231e,#0b0e12 70%);box-shadow:0 24px 80px #0008}
+.hero-top{padding:18px 20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hero-top strong{font-size:13px;letter-spacing:.12em}.hero-top span{color:#a6c5b4;font-size:12px}
+model-viewer{display:block;width:100%;height:clamp(300px,58vw,570px);background:radial-gradient(ellipse at 50% 58%,#293d35 0%,#101914 42%,#0b0e12 76%);--poster-color:transparent}
+model-viewer::part(default-progress-bar){background:var(--gold);height:3px}
+.hint{text-align:center;color:#87958d;font-size:12px;padding:0 12px 17px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 16px 18px}
+button{border:1px solid #39443e;background:#141c18;color:#e8eee9;border-radius:999px;padding:10px 14px;font-weight:650;cursor:pointer}
+button.active,button.primary{background:#d8b56d;color:#15130e;border-color:#d8b56d}
+button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:16px}
+.card{background:linear-gradient(145deg,#131820,#0e1217);border:1px solid var(--line);border-radius:18px;padding:18px}
+.card h2{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#cbd2d9;margin:0 0 14px}
+.big{font-size:clamp(28px,5vw,40px);font-weight:850;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.muted{color:var(--muted);font-size:12px}.progress{height:10px;border-radius:99px;background:#252c33;overflow:hidden;margin:14px 0 8px}.bar{height:100%;width:0;background:linear-gradient(90deg,#1d714e,#7ac49b);border-radius:99px;transition:width .25s}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.stat{background:#0b1015;border:1px solid #222a32;border-radius:12px;padding:12px}.stat b{display:block;margin-top:5px;font-size:17px;font-variant-numeric:tabular-nums}
+input{width:100%;background:#090d11;border:1px solid #303943;color:white;border-radius:10px;padding:12px;font-size:16px;margin:6px 0 10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{flex:1}
+.history{margin-top:12px;max-height:210px;overflow:auto}.entry{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #252c35;font-size:13px}.entry small{color:var(--muted)}
+footer{text-align:center;color:#69737e;font-size:11px;margin-top:18px;line-height:1.6}
+@media(max-width:720px){main{width:calc(100% - 20px);padding-top:18px}.grid{grid-template-columns:1fr}.hero{border-radius:17px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<main>
+<header><div class="brand">DREAM GARAGE / M4 PROJECT</div><div class="tag">60 MONTHS · GROW</div></header>
+<h1>One goal.<br><span style="color:var(--gold)">M4 G82.</span></h1>
+<p class="sub">Наш путь к BMW M4 Competition · Isle of Man Green</p>
+
+<section class="hero">
+  <div class="hero-top"><strong>BMW M4 G82 · ADRO KIT</strong><span>ISLE OF MAN GREEN</span></div>
+  <model-viewer id="car" src="bmw_m4_g82_with_adro_kit.glb"
+    camera-controls auto-rotate auto-rotate-delay="1800" rotation-per-second="12deg"
+    shadow-intensity="1.1" exposure="1.05" environment-image="neutral"
+    camera-orbit="35deg 72deg 4.5m" min-camera-orbit="auto 25deg auto"
+    max-camera-orbit="auto 90deg auto" interaction-prompt="auto"
+    loading="eager" alt="Интерактивная 3D-модель BMW M4 G82 с аэродинамическим комплектом">
+    <div slot="poster" style="color:#c8d4cc;padding:30px;text-align:center">Загружаем нашу M4…</div>
+  </model-viewer>
+  <div class="hint">Проводи пальцем, чтобы вращать · Сведи или разведи пальцы, чтобы изменить масштаб</div>
+  <div class="controls">
+    <button id="rotateBtn" class="active" type="button">Автовращение: ВКЛ</button>
+    <button id="resetBtn" type="button">Вернуть ракурс</button>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <h2>BMW fund / капитал</h2>
+    <div class="muted">Текущий баланс</div>
+    <div class="big" id="balance">200 ₽</div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="muted" id="percent">0,00% от цели</div>
+    <div class="stats">
+      <div class="stat"><span class="muted">Осталось</span><b id="remaining">7 999 800 ₽</b></div>
+      <div class="stat"><span class="muted">Пополнено</span><b id="total">0 ₽</b></div>
+      <div class="stat"><span class="muted">Цель</span><b>8 000 000 ₽</b></div>
+      <div class="stat"><span class="muted">Плановый взнос</span><b>50 000 ₽</b></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Добавить пополнение</h2>
+    <label class="muted" for="amount">Сумма, ₽</label>
+    <input id="amount" type="number" min="1" step="1" placeholder="Например, 50000">
+    <label class="muted" for="note">Комментарий (необязательно)</label>
+    <input id="note" type="text" maxlength="70" placeholder="Зарплата, премия…">
+    <div class="actions"><button class="primary" id="addBtn" type="button">Добавить</button><button id="undoBtn" type="button">Отменить последнее</button></div>
+    <div class="history" id="history"><div class="muted">Пока нет пополнений.</div></div>
+    <div class="actions" style="margin-top:12px"><button id="csvBtn" type="button">Экспорт CSV</button></div>
+  </div>
+</section>
+<footer>Локальный трекер: записи хранятся в браузере этого устройства. Это не банковский счёт и не инвестиционный сервис. Не очищай данные сайта, если хочешь сохранить историю.</footer>
+</main>
+<script>
+const GOAL=8000000, KEY='bmw_m4_goal_tracker_v2';
+const fmt=n=>new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(n))+' ₽';
+let state;
+try{state=JSON.parse(localStorage.getItem(KEY))||{transactions:[]}}catch(e){state={transactions:[]}}
+if(!Array.isArray(state.transactions))state.transactions=[];
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function render(){
+ const deposits=state.transactions.reduce((s,t)=>s+Number(t.amount||0),0);
+ const balance=200+deposits, pct=Math.min(100,balance/GOAL*100);
+ $('balance').textContent=fmt(balance);$('remaining').textContent=fmt(Math.max(0,GOAL-balance));
+ $('total').textContent=fmt(deposits);$('percent').textContent=pct.toFixed(2).replace('.',',')+'% от цели';
+ $('bar').style.width=pct+'%';
+ $('history').innerHTML=state.transactions.length?state.transactions.slice().reverse().map((t,i)=>`<div class="entry"><div><b>+${fmt(t.amount)}</b><br><small>${new Date(t.date).toLocaleDateString('ru-RU')} · ${escapeHtml(t.note||'Пополнение')}</small></div><button data-del="${state.transactions.length-1-i}" aria-label="Удалить запись">Удалить</button></div>`).join(''):'<div class="muted">Пока нет пополнений.</div>';
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('addBtn').onclick=()=>{const amount=Number($('amount').value);if(!Number.isFinite(amount)||amount<=0){alert('Введи сумму больше нуля.');return}state.transactions.push({amount,note:$('note').value.trim(),date:new Date().toISOString()});$('amount').value='';$('note').value='';save()};
+$('undoBtn').onclick=()=>{if(!state.transactions.length)return;state.transactions.pop();save()};
+$('history').onclick=e=>{const b=e.target.closest('[data-del]');if(!b)return;state.transactions.splice(Number(b.dataset.del),1);save()};
+$('csvBtn').onclick=()=>{const rows=[['Дата','Сумма','Комментарий'],...state.transactions.map(t=>[new Date(t.date).toLocaleString('ru-RU'),t.amount,t.note||''])];const csv='\\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='bmw_m4_fund.csv';a.click();URL.revokeObjectURL(a.href)};
+render();
+
+const car=$('car');
+car.addEventListener('load',()=>{
+  // Recolor only the body paint material; wheels, glass, carbon and trim stay untouched.
+  const paint=car.model?.materials?.find(m=>(m.name||'').toLowerCase().includes('painttnr'));
+  if(paint?.pbrMetallicRoughness){
+    paint.pbrMetallicRoughness.setBaseColorFactor([0.025,0.22,0.105,1]);
+    paint.pbrMetallicRoughness.setMetallicFactor(0.72);
+    paint.pbrMetallicRoughness.setRoughnessFactor(0.24);
+  }
+});
+$('rotateBtn').onclick=()=>{car.autoRotate=!car.autoRotate;$('rotateBtn').textContent='Автовращение: '+(car.autoRotate?'ВКЛ':'ВЫКЛ');$('rotateBtn').classList.toggle('active',car.autoRotate)};
+$('resetBtn').onclick=()=>{car.cameraOrbit='35deg 72deg 4.5m';car.fieldOfView='auto'};
+</script>
+</body>
+</html>
